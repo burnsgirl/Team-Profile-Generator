@@ -4,32 +4,32 @@ const Employee = require("../lib/Employee");
 // Testing input
 describe("Create Employee", () => {
     test('It should take generate a new employee', () => {
-        const input = new Employee();
-        expect(typeof input).toBe("object");
+        const e = new Employee();
+        expect(typeof (e)).toBe('object');
     });
 });
 
 describe("Create Name", () => {
     test('It should take input for name', () => {
-        const testValue = "name";
-        const input = new Employee(testValue);
-        expect(input.name).toBe(testValue);
+        const name = "Dauphine";
+        const e = new Employee(name);
+        expect(e.name).toBe(name);
     });
 });
 
 describe("Create ID", () => {
     test('It should take input for ID', () => {
-        const input = new Employee(testValue);
         const testValue = 1
-        expect(input.id).toBe(testValue);
+        const e = new Employee("Dauphine", testValue);
+        expect(e.id).toBe(testValue);
     });
 });
 
 describe("Create Email", () => {
     test('It should take input for email', () => {
-        const input = new Employee(testValue);
         const testValue = "abc@test.com";
-        expect(input.email).toBe(testValue);
+        const e = new Employee("Dauphine", 1, testValue);
+        expect(e.email).toBe(testValue);
     });
 });
 
@@ -37,32 +37,32 @@ describe("Create Email", () => {
 describe("Get Name", () => {
     it('It should get name input', () => {
         const testValue = "Dauphine";
-        const input = new Employee(testValue);
-        expect(input.getName()).toBe(testValue);
+        const e = new Employee(testValue);
+        expect(e.getName()).toBe(testValue);
     });
 });
 
 describe("Get ID", () => {
     it('It should get ID input', () => {
-        const input = new Employee(testValue);
-        const testValue = 1
-        expect(input.getId()).toBe(testValue);
+        const testValue = 1;
+        const e = new Employee("Dauphine", testValue);
+        expect(e.getId()).toBe(testValue);
     });
 });
 
 describe("Get Email", () => {
     it('It should get email input', () => {
-        const input = new Employee(testValue);
         const testValue = "abc@test.com";
-        expect(input.getEmail()).toBe(testValue);
+        const e = new Employee("Dauphine", 1, testValue);
+        expect(e.getEmail()).toBe(testValue);
     });
 });
 
 describe("Get Role", () => {
     it('It should take  input for role', () => {
-        const testValue = "employee";
-        const input = new Employee ("Dauphine" , 1, "abc@test.com");
-        expect(input.getRole()).toBe(testValue);
+        const testValue = "Employee";
+        const e = new Employee ("Dauphine" , 1, "abc@test.com");
+        expect(e.getRole()).toBe(testValue);
     });
 });
 

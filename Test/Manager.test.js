@@ -5,24 +5,24 @@ const Manager = require("../lib/Manager");
 describe("Set office number", () => {
     test('It should set office number', () => {
         const testValue = 1;
-        const input = new Manager();
-        expect(input.officeNum).toBe(testValue);
+        const e = new Manager("Dauphine", 1, "abc@test.com", testValue);
+        expect(e.officeNum).toBe(testValue);
     });
 });
 
 //Testing retrieving input
 describe("Get role", () => {
     it('It should get the role of manager', () => {
-        const testValue = "manager";
-        const input = new Manager();
-        expect(input.getRole()).toBe(testValue);
+        const testValue = "Manager";
+        const e = new Manager("Dauphine", 1, "abc@test.com", 1);
+        expect(e.getRole()).toBe(testValue);
     });
 });
 
 describe("Get office number", () => {
     it('It should retrieve office number', () => {
         const testValue = 1;
-        const input = new Manager();
-        expect(input.getOfficeNum()).toBe(testValue);
+        const e = new Manager("Dauphine", 1, "abc@test.com", testValue);
+        expect(e.getOfficeNum()).toBe(testValue);
     });
 });
