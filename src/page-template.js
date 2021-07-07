@@ -3,17 +3,17 @@ const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 const Manager = require("../lib/Manager");
 
-// need to have something called teammember
 
 //Create Engineer Card
 const generateEngineer = function(engineer) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
-            <div class="card-header">
+            <div class="card-header bg-info">
+                <h2>Engineer</h2>
                 <h3>${engineer.getName()}</h3>
-                <h4>Engineer</h4><i class="material-icons">laptop_mac</i>
             </div>
+
             <div class="card-body">
                 <p class="id">ID: ${engineer.getId()}</p>
                 <p class="email">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
@@ -29,10 +29,11 @@ const generateIntern = function (intern) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
-            <div class="card-header">
-                <h3>${intern.getName()}</h3>
-                <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+            <div class="card-header bg-info">
+                <h2>Intern</h2>
+                <h4>${intern.getName()}</h4>
             </div>
+
             <div class="card-body">
                 <p class="id">ID: ${intern.getId()}</p>
                 <p class="email">Email:<a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
@@ -48,14 +49,15 @@ const generateManager = function (manager) {
     return `
     <div class="col-4 mt-4">
         <div class="card h-100">
-            <div class="card-header">
-                <h3>${manager.getName()}</h3>
-                <h4>Manager</h4><i class="material-icons">content_paste</i>
+            <div class="card-header bg-info">
+                <h2>Manager</h2>
+                <h4>${manager.getName()}</h4>
             </div>
+
             <div class="card-body">
                 <p class="id">ID: ${manager.getId()}</p>
                 <p class="email">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
-                <p class="office">Office Number: ${manager.getOfficeNum()}</p>
+                <p class="officeNum">Office Number: ${manager.getOfficeNum()}</p>
             </div>
         </div>
     </div>
@@ -74,65 +76,62 @@ generateHTML = (data) => {
 
 //Generating Engineer
         if (role === "Engineer") {
-            const engineerCard = generateEngineer(employee);
+            const engineer = generateEngineer(employee);
 
-            pageArray.push(engineerCard);
+            pageArray.push(engineer);
         };
 
 //Generating Intern
         if (role === "Intern") {
-            const internCard = generateIntern(employee);
+            const intern = generateIntern(employee);
 
-            pageArray.push(internCard);
+            pageArray.push(intern);
         };
 
 //Generating Manager
         if (role === "Manager") {
-            const managerCard = generateManager(employee);
+            const manager = generateManager(employee);
 
-            pageArray.push(managerCard);
+            pageArray.push(manager);
         };
-        
+    
     };
 
 //Joining Different Cards
-    const employeeCards = pageArray.join('');
+    const employees = pageArray.join('');
 
 //Generating Team With Cards
-    const generateTeam = generateTeamPage(employeeCards); 
+    const generateTeam = generateTeamPage(employees); 
     return generateTeam;
 
 };
 
 //Generating Page
-const generateTeamPage = function (employeeCards) {   
+const generateTeamPage = function (employees) {   
     return`
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Team Profile</title>
+        <title>Coding Team</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
     <body>
-        <header>
-            <nav class="navbar" id="navbar">
-                <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
-            </nav>
-        </header>
+        <div class="jumbotron jumbotron-fluid bg-info">
+            <div class="container">
+                <h1 class="display-3"><strong>Coding Team</strong></h1>
+            </div>
+        </div>
         <main>
             <div class="container">
                 <div class="row justify-content-center" id="team-cards">
-                    <!--Team Cards-->
-                    ${employeeCards}
+                    ${employees}
                 </div>
             </div>
         </main>
         
     </body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </html>
   `
