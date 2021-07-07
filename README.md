@@ -3,7 +3,9 @@
 <img src="Assests/one.png">
 
 https://github.com/burnsgirl/Team-Profile-Generator
+
 https://burnsgirl.github.io/Team-Profile-Generator/
+
 https://drive.google.com/file/d/1uvoIl246_DwQR2MdYAPznwW-m6E8eZmb/view?usp=sharing
 
 Technologies used: HTML, JavaScript, Bootstrap, Node, Inquirer
