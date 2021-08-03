@@ -25,7 +25,7 @@ For this project I used inquirer to dynamically generate a HTML file with the in
 To use this application, you will need to install inquirer. To do so you will need to run npm i in the command line.
 
 ## Usage
-This site is used to create a page that displays different team members roles and information on one page. You run the application in the command line and input the information requested by each question. Once you are finished it creates an HTML file that you can open and see the deployed page.
+This site is used to create a page that displays different team member's roles and information on one page. You run the application in the command line and input the information requested by each question. Once you are finished it creates an HTML file that you can open and see the deployed page.
 https://drive.google.com/file/d/1uvoIl246_DwQR2MdYAPznwW-m6E8eZmb/view?usp=sharing
 
 ## Technologies
